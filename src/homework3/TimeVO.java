@@ -19,7 +19,7 @@ public class TimeVO {
         if (hour >= 0) {
             this.hour += hour % 24;
             if (this.hour >= 24) {
-                this.hour = this.hour % 24;
+                this.hour %= 24;
             }
         }
     }
@@ -34,7 +34,7 @@ public class TimeVO {
             this.minute += minute % 60;
             if (this.minute >= 60) {
                 setHour(this.minute / 60);
-                this.minute = this.minute % 60;
+                this.minute %= 60;
             }
         }
     }
