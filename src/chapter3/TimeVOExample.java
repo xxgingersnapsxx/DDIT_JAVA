@@ -1,4 +1,4 @@
-package homework3;
+package chapter3;
 
 public class TimeVOExample {
     public static void main(String[] args) {
