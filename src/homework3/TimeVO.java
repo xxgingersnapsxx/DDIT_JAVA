@@ -1,11 +1,5 @@
 package homework3;
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.Date;
-import java.util.StringJoiner;
-
 public class TimeVO {
     private int hour;
     private int minute;
@@ -17,10 +11,7 @@ public class TimeVO {
 
     public void setHour(int hour) {
         if (hour >= 0) {
-            this.hour += hour % 24;
-            if (this.hour >= 24) {
-                this.hour %= 24;
-            }
+        	this.hour = hour % 24;
         }
     }
 
@@ -30,12 +21,8 @@ public class TimeVO {
 
     public void setMinute(int minute) {
         if (minute >= 0) {
-            setHour(minute / 60);
-            this.minute += minute % 60;
-            if (this.minute >= 60) {
-                setHour(this.minute / 60);
-                this.minute %= 60;
-            }
+        	setHour(this.hour += minute / 60);
+        	this.minute = minute % 60;
         }
     }
 
@@ -45,8 +32,8 @@ public class TimeVO {
 
     public void setSecond(int second) {
         if (second >= 0) {
-            setMinute(second / 60);
-            this.second = second % 60;
+        	setMinute(this.minute += second / 60);
+        	this.second = second % 60;
         }
     }
 
